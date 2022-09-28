@@ -15,4 +15,15 @@ $ https://dotnet.microsoft.com/en-us/download/visual-studio-sdks
 # Clone this repository
 $ git clone https://github.com/jdbalantar/WinFormsCrud.git
 # Open solution project with Visual Studio
-# Pres
+# Press Start
+
+
+
+##  Tecnologies used
+
+This software uses the following open source packages:
+
+- SQL Server
+- Entity Framework
+- NET Framework 4.7.2
+- Azure
