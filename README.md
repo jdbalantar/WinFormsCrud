@@ -2,28 +2,32 @@
 
 This project aims to solve the technical test of the company **[Ziursoftware](https://www.ziursoftware.com/)**.
 
-## Steps
-
 
 ## How To Use
 
-To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
-
 ```bash
-# Download and install NET Framework SDK
-$ https://dotnet.microsoft.com/en-us/download/visual-studio-sdks
 # Clone this repository
 $ git clone https://github.com/jdbalantar/WinFormsCrud.git
 # Open solution project with Visual Studio
 # Press Start
+```
 
+## If you want to install the application:
 
+```bash
+# Disable your antivirus
+# Go to the root directory of the project
+$ cd .\Setup\Debug\
+$ .\setup.exe
+> On your desktop you will find an icon called "WinFormsApp (Active)".
+# Run it
+```
 
 ##  Tecnologies used
 
 This software uses the following open source packages:
 
 - SQL Server
-- Entity Framework
+- Entity Framework 6.0
 - NET Framework 4.7.2
-- Azure
+- Microsoft Azure
