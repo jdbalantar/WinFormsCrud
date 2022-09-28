@@ -1,15 +1,16 @@
-﻿using System;
+﻿using ComponentFactory.Krypton.Toolkit;
+using System;
 using System.Data.Entity;
-using System.Windows.Forms;
+using System.Drawing;
 using WinFormsCrud.Models;
 
 
 namespace WinFormsCrud.Presentation
 {
-    public partial class FrmTable : Form
+    public partial class FrmTable : KryptonForm
     {
         public int? Id;
-        private Client oClient = null;
+        private Client _oClient = null;
 
         public FrmTable(int? id = null)
         {
@@ -22,14 +23,14 @@ namespace WinFormsCrud.Presentation
 
         private void LoadData()
         {
-            using (CrudWinFormsEntities db = new CrudWinFormsEntities())
+            using (var db = new CrudWinFormsEntities())
             {
-                oClient = db.Client.Find(Id);
-                if (oClient != null)
+                _oClient = db.Client.Find(Id);
+                if (_oClient != null)
                 {
-                    txtBoxName.Text = oClient.Name;
-                    txtBoxLastName.Text = oClient.LastName;
-                    txtBoxAddress.Text = oClient.Address;
+                    txtBoxName.Text = _oClient.Name;
+                    txtBoxLastName.Text = _oClient.LastName;
+                    txtBoxAddress.Text = _oClient.Address;
                 }
             }
         }
@@ -38,24 +39,39 @@ namespace WinFormsCrud.Presentation
         {
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void FrmTable_Load(object sender, EventArgs e)
         {
-            using (CrudWinFormsEntities db = new CrudWinFormsEntities())
+        }
+
+        private void btnSaveClient_Click(object sender, EventArgs e)
+        {
+            using (var db = new CrudWinFormsEntities())
             {
                 if (Id == null)
-                    oClient = new Client();
+                    _oClient = new Client();
 
-                oClient.Name = txtBoxName.Text;
-                oClient.LastName = txtBoxLastName.Text;
-                oClient.Address = txtBoxAddress.Text;
-
-                if (Id == null)
-                    db.Client.Add(oClient);
+                var name = txtBoxName.Text;
+                var lastName = txtBoxLastName.Text;
+                var address = txtBoxAddress.Text;
+                if (name == "" || lastName == "" || address == "")
+                {
+                    txtMessageValidation.ForeColor = Color.Red;
+                    txtMessageValidation.Text = @"There cannot be any empty field";
+                }
                 else
-                    db.Entry(oClient).State = EntityState.Modified;
+                {
+                    _oClient.Name = name;
+                    _oClient.LastName = lastName;
+                    _oClient.Address = address;
 
-                db.SaveChanges();
-                this.Close();
+                    if (Id == null)
+                        db.Client.Add(_oClient);
+                    else
+                        db.Entry(_oClient).State = EntityState.Modified;
+
+                    db.SaveChanges();
+                    this.Close();
+                }
             }
         }
     }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿#nullable enable
+using ComponentFactory.Krypton.Toolkit;
+using System;
 using System.Linq;
 using System.Windows.Forms;
 using WinFormsCrud.Models;
@@ -6,13 +8,14 @@ using WinFormsCrud.Presentation;
 
 namespace WinFormsCrud
 {
-    public partial class ClientForm : Form
+    public partial class ClientForm : KryptonForm
+
     {
-        
         public ClientForm()
         {
             InitializeComponent();
         }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -35,8 +38,13 @@ namespace WinFormsCrud
         {
             try
             {
-                return int.Parse(clientDataGridView.Rows[clientDataGridView.CurrentRow.Index].Cells[0].Value
-                    .ToString());
+                if (clientDataGridView.Rows is { Count: > 0 })
+                {
+                    return int.Parse(clientDataGridView.Rows[clientDataGridView.CurrentRow.Index].Cells[0].Value
+                        .ToString());
+                }
+                else
+                    return null;
             }
             catch (Exception e)
             {
@@ -46,41 +54,50 @@ namespace WinFormsCrud
 
         #endregion
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
         {
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnNewClient_Click(object sender, EventArgs e)
         {
-            Presentation.FrmTable oFrmTable = new Presentation.FrmTable();
+            var oFrmTable = new FrmTable();
             oFrmTable.ShowDialog();
             Refresh();
         }
 
-        private void btnEditClient_Click(object sender, EventArgs e)
+        private void btnEditClient_Click_1(object sender, EventArgs e)
         {
             int? id = GetId();
             if (id != null)
             {
-                Presentation.FrmTable oFrmTable = new FrmTable(id);
+                var oFrmTable = new FrmTable(id);
                 oFrmTable.ShowDialog();
                 Refresh();
             }
         }
 
-        private void btnDeleteClient_Click(object sender, EventArgs e)
+        private void btnDeleteClient_Click_1(object sender, EventArgs e)
         {
             int? id = GetId();
             if (id != null)
             {
-                using (CrudWinFormsEntities db = new CrudWinFormsEntities())
+                using (var db = new CrudWinFormsEntities())
                 {
-                    Client client = db.Client.Find(id);
+                    var client = db.Client.Find(id);
                     if (client != null) db.Client.Remove(client);
                     db.SaveChanges();
                 }
+
                 Refresh();
             }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var form = new FrmLogin();
+            form.FormClosed += (s, args) => this.Close();
+            form.Show();
         }
     }
 }
