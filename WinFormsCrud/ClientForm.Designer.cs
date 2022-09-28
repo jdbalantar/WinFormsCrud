@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.clientDataGridView = new System.Windows.Forms.DataGridView();
-            this.btnNewClient = new System.Windows.Forms.Button();
-            this.btnEditClient = new System.Windows.Forms.Button();
             this.btnDeleteClient = new System.Windows.Forms.Button();
+            this.btnEditClient = new System.Windows.Forms.Button();
+            this.btnNewClient = new System.Windows.Forms.Button();
+            this.clientDataGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -62,6 +62,36 @@
             this.splitContainer1.SplitterDistance = 54;
             this.splitContainer1.TabIndex = 0;
             // 
+            // btnDeleteClient
+            // 
+            this.btnDeleteClient.Location = new System.Drawing.Point(273, 12);
+            this.btnDeleteClient.Name = "btnDeleteClient";
+            this.btnDeleteClient.Size = new System.Drawing.Size(106, 23);
+            this.btnDeleteClient.TabIndex = 2;
+            this.btnDeleteClient.Text = "Eliminar";
+            this.btnDeleteClient.UseVisualStyleBackColor = true;
+            this.btnDeleteClient.Click += new System.EventHandler(this.btnDeleteClient_Click);
+            // 
+            // btnEditClient
+            // 
+            this.btnEditClient.Location = new System.Drawing.Point(130, 12);
+            this.btnEditClient.Name = "btnEditClient";
+            this.btnEditClient.Size = new System.Drawing.Size(75, 23);
+            this.btnEditClient.TabIndex = 1;
+            this.btnEditClient.Text = "Editar";
+            this.btnEditClient.UseVisualStyleBackColor = true;
+            this.btnEditClient.Click += new System.EventHandler(this.btnEditClient_Click);
+            // 
+            // btnNewClient
+            // 
+            this.btnNewClient.Location = new System.Drawing.Point(12, 12);
+            this.btnNewClient.Name = "btnNewClient";
+            this.btnNewClient.Size = new System.Drawing.Size(75, 23);
+            this.btnNewClient.TabIndex = 0;
+            this.btnNewClient.Text = "Nuevo";
+            this.btnNewClient.UseVisualStyleBackColor = true;
+            this.btnNewClient.Click += new System.EventHandler(this.button1_Click);
+            // 
             // clientDataGridView
             // 
             this.clientDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -74,36 +104,6 @@
             this.clientDataGridView.Size = new System.Drawing.Size(874, 392);
             this.clientDataGridView.TabIndex = 0;
             this.clientDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // btnNewClient
-            // 
-            this.btnNewClient.Location = new System.Drawing.Point(12, 12);
-            this.btnNewClient.Name = "btnNewClient";
-            this.btnNewClient.Size = new System.Drawing.Size(75, 23);
-            this.btnNewClient.TabIndex = 0;
-            this.btnNewClient.Text = "Nuevo";
-            this.btnNewClient.UseVisualStyleBackColor = true;
-            this.btnNewClient.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnEditClient
-            // 
-            this.btnEditClient.Location = new System.Drawing.Point(130, 12);
-            this.btnEditClient.Name = "btnEditClient";
-            this.btnEditClient.Size = new System.Drawing.Size(75, 23);
-            this.btnEditClient.TabIndex = 1;
-            this.btnEditClient.Text = "Editar";
-            this.btnEditClient.UseVisualStyleBackColor = true;
-            this.btnEditClient.Click += new System.EventHandler(this.btnEditClient_Click);
-            // 
-            // btnDeleteClient
-            // 
-            this.btnDeleteClient.Location = new System.Drawing.Point(273, 12);
-            this.btnDeleteClient.Name = "btnDeleteClient";
-            this.btnDeleteClient.Size = new System.Drawing.Size(106, 23);
-            this.btnDeleteClient.TabIndex = 2;
-            this.btnDeleteClient.Text = "Eliminar";
-            this.btnDeleteClient.UseVisualStyleBackColor = true;
-            this.btnDeleteClient.Click += new System.EventHandler(this.btnDeleteClient_Click);
             // 
             // ClientForm
             // 
