@@ -5,23 +5,26 @@ This project aims to solve the technical test of the company **[Ziursoftware](ht
 
 ## How To Use
 
+
+- Clone this repository
 ```bash
-# Clone this repository
 $ git clone https://github.com/jdbalantar/WinFormsCrud.git
-# Open solution project with Visual Studio
-# Press Start
 ```
+- Open solution project with Visual Studio
+- Press Start
+
 
 ## If you want to install the application:
 
+
+- Disable your antivirus
+- Go to the root directory of the project
 ```bash
-# Disable your antivirus
-# Go to the root directory of the project
 $ cd .\Setup\Debug\
 $ .\setup.exe
-> On your desktop you will find an icon called "WinFormsApp (Active)".
-# Run it
 ```
+> On your desktop you will find an icon called "WinFormsApp (Active)".
+- Run it
 
 ##  Tecnologies used
 
